@@ -1,5 +1,5 @@
 
-# apache ozone & hue file browser & ws localstack
+# apache ozone & hue file browser & aws localstack
 - ***this tutorial is for ubuntu!***
 - we will use postgres as our database
   
