@@ -1,6 +1,8 @@
 
 # apache ozone & hue file browser & ws localstack
 - ***this tutorial is for ubuntu!***
+- we will use postgres as our database
+  
 ## aws cli for localstack
 ### install conda
 - we need conda for pip and environments
