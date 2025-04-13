@@ -1,0 +1,176 @@
+networks:
+  network1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 200.0.0.0/16
+          gateway: 200.0.0.1
+volumes:
+    postgres:
+    prometheus:
+    grafana:
+services:
+# ---------- >> POSTGRES << ----------
+  postgresql:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD:  test
+      POSTGRES_USER: test
+      DB_NAME: test
+      restart: unless-stopped
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      network1:
+        ipv4_address: 200.0.0.4
+# ---------- >> REDIS << ----------
+  redis:
+    image: redis:latest
+    privileged: true
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
+    command: ["redis-server"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis.conf
+    networks:
+      network1:
+        ipv4_address: 200.0.0.5
+# ---------- >> HUE (NEW) << ----------
+  hue:
+    image: gethue/hue:latest
+    hostname: hue
+    ports:
+      - "8888:8888" # Hue Web UI Port
+    environment:
+      - POSTGRES_DB test
+      - POSTGRES_USER test
+      - POSTGRES_PASSWORD test
+      - HUE_SECRET_KEY=a-very-secret-key-please-change-me
+      - DJANGO_ALLOWED_HOSTS=*
+      - FS_DEFAULTFS=ofs://om:9862 # Ozone FS URI (Standard OM RPC Port is 9862)
+      # Optional: WebHDFS/HttpFS URL (OM's HTTP Port) - can help, but is not primary for OFS
+      # - WEBHDFS_URL=http://om:9874/webhdfs/v1 # Check if Ozone supports/requires this
+      # Configuration for the S3 Browser via Ozone S3 Gateway (s3g)
+      - AWS_REGION=us-east-1 # Standard region, not really relevant for Ozone S3G
+      - S3_ENDPOINT_URL=http://s3g:9878 # Internal URL to the S3 Gateway Service
+      - AWS_ACCESS_KEY_ID=YOUR_OZONE_S3_ACCESS_KEY # Replace or leave empty/remove if not necessary
+      - AWS_SECRET_ACCESS_KEY=YOUR_OZONE_S3_SECRET_KEY # Replace or leave empty/remove if not necessary
+      - IS_YARN_ENABLED=false
+    # Optional: Volume for persistent Hue data/configurations
+    # volumes:
+    #   - hue_data:/usr/share/hue/desktop/conf # Example path, check!
+    networks: # Explicitly assign network
+      - network1
+   # depends_on: # Hue should only start when OM and S3G are ready
+   #   - om
+   #   - s3g
+# ---------- >> ADMINER << ----------
+  adminer: # This seems like the intended adminer service due to the network config
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080 # Note: Port 8080 is exposed twice (here and above). This might cause conflicts unless one is removed.
+    networks:
+      network1:
+        ipv4_address: 200.0.0.12
+# ---------- >> OZONE << ----------
+  datanode:
+    image: apache/ozone:latest
+    ports:
+        - 9864
+    command: ["ozone","datanode"]
+    env_file:
+        - ./ozone/ozone.env
+  om:
+    image: apache/ozone:latest
+    ports:
+        - 9874:9874
+    environment:
+        ENSURE_OM_INITIALIZED: /data/metadata/om/current/VERSION
+        WAITFOR: scm:9876
+    env_file:
+        - ./ozone/ozone.env
+    command: ["ozone","om"]
+  scm:
+    image: apache/ozone:latest
+    ports:
+        - 9876:9876
+    env_file:
+        - ./ozone/ozone.env
+    environment:
+        ENSURE_SCM_INITIALIZED: /data/metadata/scm/current/VERSION
+    command: ["ozone","scm"]
+  recon:
+    image: apache/ozone:latest
+    ports:
+        - 9888:9888
+    env_file:
+        - ./ozone/ozone.env
+    command: ["ozone","recon"]
+  s3g:
+    image: apache/ozone:latest
+    ports:
+        - 9878:9878
+    env_file:
+        - ./ozone/ozone.env
+    command: ["ozone","s3g"]
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack_demo
+    ports:
+      - '4563-4599:4563-4599'
+      - '8055:8080' # Note: Port 8080 on the host is potentially used by Adminer as well. Consider changing one.
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - './.localstack:/tmp/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
+# ---------- >> EXPORTERS << ----------
+  # postgresql-exporter:
+  #     image: prometheuscommunity/postgres-exporter
+  #     container_name: postgresql-exporter
+  #     privileged: true
+  #     ports:
+  #         - "9187:9187"
+  #     environment:
+  #         DATA_SOURCE_NAME: "postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?sslmode=disable"
+  #     depends_on:
+  #         prometheus:
+  #             condition: service_started
+  #         postgresql:
+  #             condition: service_healthy
+  #     restart: unless-stopped
+  #     networks:
+  #         - network1
+  # htmlgen-frontend:
+  #   build:
+  #     context: ../../frontend
+  #     dockerfile: ./htmlgen/Dockerfile.frontend
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - API_URL=http://htmlgen-api:5000
+  #     - REDIS_HOST=redis
+  #     - POSTGRES_HOST=postgres
+  #
