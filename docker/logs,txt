@@ -1,0 +1,145 @@
+[14/Apr/2025 00:47:36 ] settings     INFO     Welcome to Hue 4.11.0
+[13/Apr/2025 17:47:36 -0700] backend      WARNING  mozilla_django_oidc module not found
+[13/Apr/2025 17:47:37 -0700] apps         INFO     AXES: BEGIN LOG
+[13/Apr/2025 17:47:37 -0700] apps         INFO     AXES: Using django-axes version 5.13.0
+[13/Apr/2025 17:47:37 -0700] apps         INFO     AXES: blocking by IP only.
+[14/Apr/2025 00:47:38 ] supervisor   INFO     Starting process /usr/share/hue/build/env/bin/hue kt_renewer
+[14/Apr/2025 00:47:38 ] supervisor   INFO     Starting process /usr/share/hue/build/env/bin/hue runcpserver
+[14/Apr/2025 00:47:38 ] supervisor   INFO     Started proceses (pid 19) /usr/share/hue/build/env/bin/hue runcpserver
+[14/Apr/2025 00:47:38 ] supervisor   INFO     Started proceses (pid 18) /usr/share/hue/build/env/bin/hue kt_renewer
+[14/Apr/2025 00:47:38 ] settings     INFO     Welcome to Hue 4.11.0
+[14/Apr/2025 00:47:38 ] settings     INFO     Welcome to Hue 4.11.0
+[13/Apr/2025 17:47:38 -0700] backend      WARNING  mozilla_django_oidc module not found
+[13/Apr/2025 17:47:38 -0700] backend      WARNING  mozilla_django_oidc module not found
+[13/Apr/2025 17:47:39 -0700] apps         INFO     AXES: BEGIN LOG
+[13/Apr/2025 17:47:39 -0700] apps         INFO     AXES: BEGIN LOG
+[13/Apr/2025 17:47:39 -0700] apps         INFO     AXES: Using django-axes version 5.13.0
+[13/Apr/2025 17:47:39 -0700] apps         INFO     AXES: Using django-axes version 5.13.0
+[13/Apr/2025 17:47:39 -0700] apps         INFO     AXES: blocking by IP only.
+[13/Apr/2025 17:47:39 -0700] apps         INFO     AXES: blocking by IP only.
+[13/Apr/2025 17:47:39 -0700] jdbc         WARNING  Failed to import py4j
+[13/Apr/2025 17:47:39 -0700] jdbc         WARNING  Failed to import py4j
+[13/Apr/2025 17:47:39 -0700] api3         WARNING  simple_salesforce module not found
+[13/Apr/2025 17:47:39 -0700] api3         WARNING  simple_salesforce module not found
+[13/Apr/2025 17:47:40 -0700] schemas      INFO     Include schema from 'file:///usr/share/hue/build/env/lib/python3.8/site-packages/xmlschema/schemas/XSD_1.1/xsd11-extra.xsd'
+[13/Apr/2025 17:47:40 -0700] schemas      INFO     Include schema from 'file:///usr/share/hue/build/env/lib/python3.8/site-packages/xmlschema/schemas/XSD_1.1/xsd11-extra.xsd'
+[13/Apr/2025 17:47:40 -0700] urls         WARNING  djangosaml2 module not found
+[13/Apr/2025 17:47:40 -0700] urls         WARNING  djangosaml2 module not found
+[13/Apr/2025 17:47:40 -0700] kt_renewer   INFO     Keytab renewer not starting, no keytab configured
+[14/Apr/2025 00:47:41 ] supervisor   INFO     Command "/usr/share/hue/build/env/bin/hue kt_renewer" exited normally.
+[13/Apr/2025 17:47:41 -0700] settings     INFO     Welcome to Hue 4.11.0
+[13/Apr/2025 17:47:41 -0700] backend      WARNING  mozilla_django_oidc module not found
+[13/Apr/2025 17:47:42 -0700] apps         INFO     AXES: BEGIN LOG
+[13/Apr/2025 17:47:42 -0700] apps         INFO     AXES: Using django-axes version 5.13.0
+[13/Apr/2025 17:47:42 -0700] apps         INFO     AXES: blocking by IP only.
+[13/Apr/2025 17:47:42 -0700] jdbc         WARNING  Failed to import py4j
+[13/Apr/2025 17:47:42 -0700] api3         WARNING  simple_salesforce module not found
+[13/Apr/2025 17:47:42 -0700] schemas      INFO     Include schema from 'file:///usr/share/hue/build/env/lib/python3.8/site-packages/xmlschema/schemas/XSD_1.1/xsd11-extra.xsd'
+[13/Apr/2025 17:47:43 -0700] urls         WARNING  djangosaml2 module not found
+[13/Apr/2025 17:47:43 -0700] rungunicornserver INFO     Welcome to Hue from Gunicorn server 4.11.0
+[13/Apr/2025 17:47:43 -0700] middleware   INFO     Unloading MimeTypeJSFileFixStreamingMiddleware
+[13/Apr/2025 17:47:43 -0700] middleware   INFO     Unloading CacheControlMiddleware
+[13/Apr/2025 17:47:43 -0700] middleware   INFO     Unloading HueRemoteUserMiddleware
+[13/Apr/2025 17:47:43 -0700] middleware   INFO     Unloading SpnegoMiddleware
+[13/Apr/2025 17:47:43 -0700] middleware   INFO     Unloading ProxyMiddleware
+[13/Apr/2025 17:49:11 -0700] middleware   INFO     Redirecting to login page: /?vscodeBrowserReqId=1744591751230
+[13/Apr/2025 17:49:11 -0700] access       INFO     172.18.0.1 -anon- - "GET / HTTP/1.1" --- login redirection
+[13/Apr/2025 17:49:11 -0700] access       INFO     172.18.0.1 -anon- - "GET / HTTP/1.1" --- login redirection
+[13/Apr/2025 17:49:11 -0700] access       INFO     172.18.0.1 -anon- - "GET / HTTP/1.1" returned in 1ms 302 0
+[13/Apr/2025 17:49:11 -0700] access       INFO     172.18.0.1 -anon- - "GET / HTTP/1.1" returned in 1ms 302 0
+- 172.18.0.1 - - [13/Apr/2025:17:49:11 -0700] 'GET /?vscodeBrowserReqId=1744591751230 HTTP/1.1' 302 0 '-' 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.96.2 Chrome/128.0.6613.186 Electron/32.2.6 Safari/537.36'
+[13/Apr/2025 17:49:11 -0700] middleware   WARNING  request.fs was not set for anonymous user
+[13/Apr/2025 17:49:11 -0700] models       ERROR    Failed to get or create sample user
+Traceback (most recent call last):
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "auth_user" does not exist
+LINE 1: SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."id" = 11...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/share/hue/apps/useradmin/src/useradmin/models.py", line 334, in install_sample_user
+    if User.objects.filter(id=SAMPLE_USER_ID).exists() and not ENABLE_ORGANIZATIONS.get():
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/query.py", line 1226, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 592, in has_results
+    return compiler.has_results()
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1366, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "auth_user" does not exist
+LINE 1: SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."id" = 11...
+                             ^
+
+[13/Apr/2025 17:49:11 -0700] middleware   INFO     Processing exception: current transaction is aborted, commands ignored until end of transaction block
+: Traceback (most recent call last):
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InFailedSqlTransaction: current transaction is aborted, commands ignored until end of transaction block
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.8/contextlib.py", line 75, in inner
+    return func(*args, **kwds)
+  File "/usr/share/hue/desktop/core/ext-py3/django-axes-5.13.0/axes/decorators.py", line 11, in inner
+    return func(request, *args, **kwargs)
+  File "/usr/share/hue/desktop/core/src/desktop/auth/views.py", line 99, in dt_login
+    is_first_login_ever = first_login_ever()
+  File "/usr/share/hue/desktop/core/src/desktop/auth/views.py", line 80, in first_login_ever
+    if hasattr(backend, 'is_first_login_ever') and backend.is_first_login_ever():
+  File "/usr/share/hue/desktop/core/src/desktop/auth/backend.py", line 341, in is_first_login_ever
+    return User.objects.exclude(id=install_sample_user().id).count() == 0
+  File "/usr/share/hue/apps/useradmin/src/useradmin/models.py", line 367, in install_sample_user
+    default_group = get_default_user_group(user=user)
+  File "/usr/share/hue/apps/useradmin/src/useradmin/models.py", line 198, in get_default_user_group
+    group, created = Group.objects.get_or_create(**attributes)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/query.py", line 929, in get_or_create
+    return self.get(**kwargs), False
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/query.py", line 646, in get
+    num = len(clone)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/query.py", line 376, in __len__
+    self._fetch_all()
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/share/hue/build/env/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.InternalError: current transaction is aborted, commands ignored until end of transaction block
+
+
+- 172.18.0.1 - - [13/Apr/2025:17:49:12 -0700] 'GET /hue/accounts/login?next=/%3FvscodeBrowserReqId%3D1744591751230 HTTP/1.1' 500 0 '-' '-'
+- 172.18.0.1 - - [13/Apr/2025:17:49:20 -0700] 'GET /home?&is_embeddable=true&_=1744582448844 HTTP/1.1' 500 0 '-' '-'
+- 172.18.0.1 - - [13/Apr/2025:17:49:20 -0700] 'GET /500?is_embeddable=true&_=1744582448845 HTTP/1.1' 500 0 '-' '-'
+- 172.18.0.1 - - [13/Apr/2025:17:49:28 -0700] 'GET / HTTP/1.1' 500 0 '-' '-'
+- 172.18.0.1 - - [13/Apr/2025:17:49:28 -0700] 'GET /favicon.ico HTTP/1.1' 500 0 '-' '-'

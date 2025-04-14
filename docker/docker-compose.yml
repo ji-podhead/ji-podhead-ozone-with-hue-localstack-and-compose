@@ -27,10 +27,13 @@ services:
       ports:
       - "8888:8888"
       environment:
-      - POSTGRES_DB test
-      - POSTGRES_USER test
-      - POSTGRES_PASSWORD test
-      # - DJANGO_ALLOWED_HOSTS=*
+        POSTGRES_DB: hue
+        POSTGRES_USER: hue
+        POSTGRES_HOST: postgresql # <-- Korrekter Service-Name als Hostname
+        POSTGRES_PASSWORD: hue
+        DJANGO_ALLOWED_HOSTS: '*' # <-- Wahrscheinlich benötigt, einkommentieren
+        IS_YARN_ENABLED: false    # <-- Diese hattest du vorher, ggf. wieder hinzufügen?
+
       volumes:
         - ./hue.ini:/usr/share/hue/desktop/conf/z-hue.ini
       depends_on:
